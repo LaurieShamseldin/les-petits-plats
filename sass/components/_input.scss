@@ -1,0 +1,23 @@
+.input {
+  background:$white-font;
+  font-family:$primary-font;
+
+  &__search {
+    height:58px;
+    border:none;
+    border-radius:10px;
+    width:100%;
+    color:$grey-dark;
+    caret-color:$grey-dark;
+    padding-left: 20px;
+  }
+}
+
+.input__search:focus::placeholder {
+  color: transparent;
+}
+
+.input__search::placeholder {
+  color:$grey-dark;
+  text-indent: 10px;
+}

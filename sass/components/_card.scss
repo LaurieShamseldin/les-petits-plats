@@ -1,0 +1,79 @@
+.card {
+  width:100%;
+  background:white;
+  border-radius:20px;
+
+  &__header {
+    position:relative;
+  }
+
+  &__img {
+    height:250px;
+    width:100%;
+    object-fit: cover;
+    border-radius:20px 20px 0 0;
+  }
+
+  &__delay {
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:60px;
+    text-align:center;
+    display:inline-block;
+    background:$primary-color;
+    padding:5px;
+    border-radius:15px;
+    font-size:12px;
+  }
+
+  &__content {
+    padding:40px 20px;
+  }
+
+  &__title {
+    font-family:$secondary-font;
+    font-size:1.1rem;
+    margin-bottom:30px;
+
+    &--step {
+      text-transform: uppercase;
+      display:inline-block;
+      color:$grey-dark;
+      font-size:12px;
+      font-weight:bold;
+      margin-bottom:15px;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__text {
+    font-size:0.8rem;
+    color:$light-black;
+    margin-bottom:20px;
+    line-height:18px;
+  }
+
+  &-ingredients {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+
+  &__ingredient {
+    display:flex;
+    flex-direction: column;
+
+    &--name {
+      color:$light-black;
+      font-size:0.8rem;
+      font-weight:500;
+      line-height: 20px;
+    }
+
+    &--quantity {
+      color:$grey-dark;
+      font-size:0.8rem;
+    }
+  }
+}

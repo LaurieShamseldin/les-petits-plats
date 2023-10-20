@@ -1,0 +1,31 @@
+.main {
+  background:$grey-light;
+  padding:$content-padding;
+  font-family:$primary-font;
+}
+
+.filters {
+
+  &__tags {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn {
+    display:flex;
+    column-gap: 30px;
+  }
+
+  &__result {
+    font-family:$secondary-font;
+    font-size:1.2rem;
+  }
+}
+
+.recips {
+  margin-top:50px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}

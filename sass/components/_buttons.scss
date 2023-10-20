@@ -1,0 +1,28 @@
+.btn {
+  border:none;
+  font-family:$primary-font;
+  border-radius:10px;
+
+  &__search {
+    position:absolute;
+    right:-5px;
+    top:6px;
+    background: $light-black;
+    color:$white-font;
+    height:80%;
+    width:50px;
+    font-size:25px;
+  }
+
+  &-filters {
+    background:white;
+    height:56px;
+    width:190px;
+    padding: 0 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight:500;
+    font-size:1rem;
+  }
+}

@@ -1,0 +1,16 @@
+@import 'abstracts/variables';
+// @import 'abstracts/mixins';
+// @import 'abstracts/functions';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'components/buttons';
+@import 'components/input';
+@import 'components/card';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'pages/home';
+
