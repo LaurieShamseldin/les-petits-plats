@@ -38,4 +38,13 @@
   &__input {
     width:100%;
   }
+
+  &__close {
+    font-size: 22px;
+    position: absolute;
+    color: $grey-dark;
+    right: 60px;
+    top: 22px;
+    cursor:pointer;
+  }
 }

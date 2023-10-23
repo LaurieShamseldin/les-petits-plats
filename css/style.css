@@ -209,6 +209,14 @@ table {
 .header__input {
   width: 100%;
 }
+.header__close {
+  font-size: 22px;
+  position: absolute;
+  color: #7A7A7A;
+  right: 60px;
+  top: 22px;
+  cursor: pointer;
+}
 
 .main {
   background: #EDEDED;
@@ -235,6 +243,10 @@ table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
