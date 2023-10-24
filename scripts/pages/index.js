@@ -53,7 +53,7 @@ const resetForm = () => {
 inputSearch.addEventListener("input", searchRecipes);
 resetSearch.addEventListener("click", resetForm);
 
-async function init() {
+const init = () => {
 	recipesData = recipes;
   displayRecipes(recipesData);
 }
