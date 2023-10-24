@@ -3,7 +3,6 @@ const displaySearchRecipes = (search, data) => {
     return data;
   }
 
-
   return data.filter(recipe => {
     const recipeName = recipe.name.toLowerCase();
     const recipeDescription = recipe.description.toLowerCase();

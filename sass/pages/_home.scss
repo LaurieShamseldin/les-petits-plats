@@ -12,7 +12,7 @@
     align-items: center;
   }
 
-  &__btn {
+  &__dropdown{
     display:flex;
     column-gap: 30px;
   }
@@ -20,6 +20,50 @@
   &__result {
     font-family:$secondary-font;
     font-size:1.2rem;
+  }
+
+  &__btn {
+    background: white;
+    border-radius:10px;
+    width: 190px;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    position:relative;
+
+    &-input {
+      border:1px solid #C6C6C6;
+      padding: 8px 30px 8px 6px;
+      border-radius:2px;
+    }
+
+    &-button {
+      position:absolute;
+      right:20px;
+      background:none;
+      color:$grey-dark;
+    }
+  }
+
+  &__list {
+    max-height:200px;
+    overflow: auto;
+    padding-top:10px;
+
+    & li {
+      padding: 12px 10px;
+      font-size:0.9rem;
+      cursor: default;
+    }
+
+    & li:hover {
+      background:$primary-color;
+    }
   }
 }
 
