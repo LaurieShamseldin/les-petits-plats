@@ -1,31 +1,17 @@
 const displaySearchRecipes = (search, data) => {
-  let arraySearch = [];
-  if (search.length > 2) {
-    for (let i = 0; i < data.length; i++) {
-      let searchFind = false;
-      const recipe = data[i];
-      const ingredients = recipe.ingredients;
-
-      if (recipe.name.toLowerCase().includes(search) || recipe.description.toLowerCase().includes(search))  {
-        searchFind = true;
-      } 
-
-      for (let ig = 0; ig < ingredients.length; ig++) {
-        if (ingredients[ig].ingredient.toLowerCase().includes(search)) {
-          searchFind = true;
-        } 
-      }
-      if (searchFind) {
-        arraySearch.push(recipe);
-      }
-    }
-  } 
-  else {
-    arraySearch = data;
+  if (search.length <= 2) {
+    return data;
   }
 
-  return arraySearch;
-}
+
+  return data.filter(recipe => {
+    const recipeName = recipe.name.toLowerCase();
+    const recipeDescription = recipe.description.toLowerCase();
+    const ingredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase());
+
+    return recipeName.includes(search) || recipeDescription.includes(search) || ingredients.some(ig => ig.includes(search));
+  });
+};
 
 
 export { displaySearchRecipes };
