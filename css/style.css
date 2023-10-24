@@ -245,6 +245,13 @@ table {
   gap: 50px;
 }
 
+.result__error {
+  text-align: center;
+  display: block;
+  margin-top: 30px;
+  font-weight: 599;
+}
+
 .hidden {
   display: none;
 }
