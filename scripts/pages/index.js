@@ -4,7 +4,7 @@ import { displaySearchRecipes } from '../utils/search.js';
 
 
 let recipesData = [];
-let searchTextUser = ""
+let searchTextUser = "";
 
 // DOM
 const recipeSection = document.getElementById("recips");
@@ -35,7 +35,7 @@ const displayRecipes = (recipesData) => {
     resetSearch.classList.add("hidden");
   }
 
-}
+};
 
 const searchRecipes = (event) => {
   resetSearch.classList.remove("hidden");
@@ -53,7 +53,7 @@ const resetForm = () => {
 inputSearch.addEventListener("input", searchRecipes);
 resetSearch.addEventListener("click", resetForm);
 
-async function init() {
+constinit = () => {
 	recipesData = recipes;
   displayRecipes(recipesData);
 }

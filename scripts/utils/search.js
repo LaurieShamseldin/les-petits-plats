@@ -25,7 +25,7 @@ const displaySearchRecipes = (search, data) => {
   }
 
   return arraySearch;
-}
+};
 
 
 export { displaySearchRecipes };
