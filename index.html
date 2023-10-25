@@ -32,12 +32,12 @@
     <section id="filters" class="filters">
       <div class="filters__tags">
         <div class="filters__dropdown">
-          <div class="filters__btn">
-            <button class="btn btn-filters" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+          <div class="filters__btn filters-ingredients">
+            <button class="btn btn-filters" type="button">
               <span class="btn-text">Ingrédients</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <div class="filters__tag">
+            <div class="filters__tag hidden">
               <div class="filters__search">
                 <input class="filters__search-input" id="filters-ingredients" type="search" placeholder="Rechercher">
                 <button class="filters__search-button btn" type="submit">
@@ -45,28 +45,42 @@
                 </button>
               </div>
               <ul class="filters__list" id="ingredients-items">
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                <li class="filters-tag">Tomates</li>
-                
+                <!-- <li class="filters-tag">Tomates</li> -->
               </ul>
             </div>
           </div>
 
-          <button class="btn btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-            <span class="btn-text">Appareils</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
+          <div class="filters__btn filters-appareils">
+            <button class="btn btn-filters" type="button">
+              <span class="btn-text">Appareils</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="filters__tag hidden">
+              <div class="filters__search">
+                <input class="filters__search-input" id="filters-ingredients" type="search" placeholder="Rechercher">
+                <button class="filters__search-button btn" type="submit">
+                  <i class="fa-solid fa-magnifying-glass search__btn"></i>
+                </button>
+              </div>
+              <ul class="filters__list" id="appareils-items"></ul>
+            </div>
+          </div>
 
-          <button class="btn btn-filters dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-            <span class="btn-text">Ustensiles</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
+          <div class="filters__btn filters-ustensiles">
+            <button class="btn btn-filters" type="button">
+              <span class="btn-text">Ustensiles</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="filters__tag hidden">
+              <div class="filters__search">
+                <input class="filters__search-input" id="filters-ingredients" type="search" placeholder="Rechercher">
+                <button class="filters__search-button btn" type="submit">
+                  <i class="fa-solid fa-magnifying-glass search__btn"></i>
+                </button>
+              </div>
+              <ul class="filters__list" id="ustensiles-items"></ul>
+            </div>
+          </div>
         </div>
 
       <div class="filters__result">
