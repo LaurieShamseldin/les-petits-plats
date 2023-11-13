@@ -3,6 +3,7 @@ import recipeFactory from '../factories/recipe.js';
 import { displaySearchRecipes } from '../utils/search.js';
 import { allIngredients, allAppareils, allUstensiles } from '../utils/tags.js';
 import tagFactory from '../factories/tags.js';
+import { filterTagsSearch } from '../utils/dropdowns.js';
 
 
 let recipesData = [];
@@ -15,10 +16,14 @@ const resultError = document.querySelector(".result__error");
 const inputSearch = document.getElementById("search");
 const resetSearch = document.querySelector(".header__close");
 const form = document.getElementById("search-form");
-const dropdowns = document.querySelectorAll(".filters__btn");
+const dropdowns = document.querySelectorAll(".filters__btn .btn-filters");
 const listIngredients = document.getElementById("ingredients-items");
 const listAppareils = document.getElementById("appareils-items");
 const listUstensiles = document.getElementById("ustensiles-items");
+const ingredientsInput = document.getElementById("filters-ingredients");
+const appareilsInput = document.getElementById("filters-appareils");
+const ustensilesInput = document.getElementById("filters-ustensiles");
+const inputDropdowns = document.querySelectorAll('.filters__search-input');
 
 const displayRecipes = (recipesData) => {
 
@@ -46,7 +51,8 @@ const displayRecipes = (recipesData) => {
 }
 
 const displayDropDown = (dropdown) => {
-  const filtersTag = dropdown.querySelector('.filters__tag');
+  const parentElement = dropdown.parentNode;
+  const filtersTag = parentElement.querySelector('.filters__tag');
   if (filtersTag.classList.contains("hidden")) {
    const chevron = dropdown.querySelector(".fa-chevron-down");
    chevron.classList.remove("fa-chevron-down");
@@ -91,28 +97,46 @@ const displayTags = () => {
   let appareilsArray = allAppareils(recipesData);
   let ustensilesArray = allUstensiles(recipesData);
 
-  ingredientsArray.forEach((ingredient) => {
+  const ingredientsSearchTags = filterTagsSearch(ingredientsInput.value.toLowerCase(), ingredientsArray);
+  const appareilsSearchTags = filterTagsSearch(appareilsInput.value.toLowerCase(), appareilsArray);
+  const ustensilesSearchTags = filterTagsSearch(ustensilesInput.value.toLowerCase(), ustensilesArray);
+
+  console.log(appareilsInput.value);
+
+  listIngredients.textContent = "";
+  listAppareils.textContent = "";
+  listUstensiles.textContent = "";
+
+  ingredientsSearchTags.forEach((ingredient) => {
     const tagModel = tagFactory(ingredient);
     const tagPageDOM = tagModel.getTagDropdownDOM();
     listIngredients.appendChild(tagPageDOM);
   });
 
-    appareilsArray.forEach((appareil) => {
+  appareilsSearchTags.forEach((appareil) => {
       const tagModel = tagFactory(appareil);
       const tagPageDOM = tagModel.getTagDropdownDOM();
       listAppareils.appendChild(tagPageDOM);
     });
 
-    ustensilesArray .forEach((ustensile) => {
+    ustensilesSearchTags.forEach((ustensile) => {
       const tagModel = tagFactory(ustensile);
       const tagPageDOM = tagModel.getTagDropdownDOM();
       listUstensiles.appendChild(tagPageDOM);
     });
 }
 
+
 const init = () => {
 	recipesData = recipes;
   displayRecipes(recipesData);
+  inputDropdowns.forEach((inputDropDown) => {
+    inputDropDown.addEventListener("input", () => {
+      displayTags();
+    })
+  });
+
+
 }
 
 init();

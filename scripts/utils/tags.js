@@ -24,7 +24,6 @@ const allUstensiles = (data) => {
   .flat() // Aplatit tous les tableaux d'ingrédients en un seul tableau
   .map(ustensil => ustensil.toLowerCase()) // Met les appareils en minuscule
   .filter((ustensil, index, array) => array.indexOf(ustensil) === index); // Filtre pour les ingrédients uniques
-  console.log(ustensilesArray);
 
   return ustensilesArray;
 }
