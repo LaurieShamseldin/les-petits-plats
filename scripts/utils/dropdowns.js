@@ -5,5 +5,4 @@ const filterTagsSearch = (inputSearch, tags) => {
   return filteredTags;
 };
 
-
 export { filterTagsSearch };

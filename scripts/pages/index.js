@@ -41,21 +41,20 @@ const displayRecipes = (recipesData) => {
       const recipesPageDOM = recipModel.getRecipeCardDOM();
       recipeSection.appendChild(recipesPageDOM);
       });
+
+   // Affichage du texte au singulier ou pluriel
+   resultRecipes.textContent = `${quantityRecipes} recette${quantityRecipes > 1 ? 's' : ''}`;
+
+   // Affichage par défaut de tous les tags 
+   displayTags(recipesData);
       // Si pas de recettes disponibles, affichage d'un message d'erreur
   } else {
     resultError.textContent = `Aucune recette ne contient '${searchTextUser}'. Veuillez effectuer une nouvelle recherche.`;
   }
 
-  // Affichage du texte au singulier ou pluriel
-  resultRecipes.textContent = `${quantityRecipes} recette${quantityRecipes > 1 ? 's' : ''}`;
-
   if (!searchTextUser) {
     resetSearch.classList.add("hidden");
   };
-  
-  // Affichage par défaut de tous les tags 
-  displayTags(recipesData);
-
 }
 
 // Affichage des dropdown des tags
@@ -77,12 +76,6 @@ const displayDropDown = (dropdown) => {
     filtersTag.classList.add("hidden");
   }
 }
-// Au clic sur le bloc affichage des dropdowns
-dropdowns.forEach((dropdown) => {
-  dropdown.addEventListener("click", () => {
-    displayDropDown(dropdown);
-  });
-});
 
 // Recherche de l'utilisateur et affichage des recettes en conséquence
 const searchRecipes = (event) => {
@@ -105,6 +98,7 @@ resetSearch.addEventListener("click", resetForm);
 
 
 const displayTags = (list) => {
+  // Je récupère mes tags que je stocke dans une variable
   let ingredientsArray = allIngredients(list);
   let appareilsArray = allAppareils(list);
   let ustensilesArray = allUstensiles(list);
@@ -178,7 +172,6 @@ const displayFilteredTags = (tagsArray, listElement) => {
 
 
 const addActiveTag = (tag, tagName, typeTag) => {
-
   recipeSection.textContent = "";
   // Intégration du tag dans le tableau
   typeTag.push(tagName);
@@ -189,7 +182,7 @@ const addActiveTag = (tag, tagName, typeTag) => {
 
   const hideIcon = tagActiveDom.querySelector("i");
   hideIcon.addEventListener("click", () => hideTag(tagActiveDom, tagName, typeTag));
-  const allTags = displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData);
+  const allTags = displaySearchRecipes(searchTextUser, displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData));
 
   displayRecipes(allTags);
 } 
@@ -201,7 +194,7 @@ const removeActiveTag = (tagName, tagsArray) => {
     tagsArray.splice(index, 1);
   }
 
-  const allTags = displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData);
+  const allTags = displaySearchRecipes(searchTextUser, displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData));
 
   displayRecipes(allTags);
 }
@@ -228,6 +221,12 @@ const init = () => {
   });
 
 
+  // Au clic sur le bloc affichage des dropdowns
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener("click", () => {
+      displayDropDown(dropdown);
+    });
+  });
 }
 
 init();

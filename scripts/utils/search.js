@@ -12,7 +12,6 @@ const displaySearchRecipes = (search, data) => {
   });
 };
 
-
 const displaySearchRecipesWithTags = (ingredientsTags, ustensilesTags, appareilsTags, data) => {
   // Filtrer les recettes en fonction des tags d'ingrédients, d'ustensiles et d'appareils
   return data.filter(recipe => {
@@ -26,12 +25,9 @@ const displaySearchRecipesWithTags = (ingredientsTags, ustensilesTags, appareils
         ustensile.toLowerCase() === tag.toLowerCase()
       )
     );
-
     // Retourner true si la recette possède tous les tags spécifiés pour ingrédients, ustensiles et appareils
     return hasAllIngredients && hasAllUstensiles && hasAllAppareils;
   });
 };
-
-
 
 export { displaySearchRecipes, displaySearchRecipesWithTags };

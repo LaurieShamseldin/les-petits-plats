@@ -69,9 +69,7 @@ export default function recipeFactory(data) {
           ingredientQuantity.textContent = ingredient.quantity;
           ingredientContent.appendChild(ingredientQuantity);
         }
-
       }
-    
     })
 
     article.appendChild(header);
@@ -81,5 +79,4 @@ export default function recipeFactory(data) {
      
   }
   return { getRecipeCardDOM};
-  
 }
