@@ -4,7 +4,7 @@ const allIngredients = (data) => {
     .flat() // Aplatit tous les tableaux d'ingrédients en un seul tableau
     .map(ingredient => ingredient.ingredient.toLowerCase()) // Met les ingrédients en minuscules
     .filter((ingredient, index, array) => array.indexOf(ingredient) === index); // Filtre pour les ingrédients uniques
-
+    
     return ingredientsArray;
 };
 

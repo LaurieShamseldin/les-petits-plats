@@ -39,13 +39,13 @@
 
     &-input {
       border:1px solid #C6C6C6;
-      padding: 8px 27px 8px 2px;
+      padding: 8px 25px 8px 4px;
       border-radius:2px;
     }
 
     &-button {
       position:absolute;
-      right:20px;
+      right:15px;
       background:none;
       color:$grey-dark;
     }
@@ -80,3 +80,28 @@
   margin-top: 30px;
   font-weight: 599;
 }
+
+.list-tags-active {
+  margin-top:20px;
+  display:flex;
+  flex-wrap: wrap;
+  column-gap:10px;
+  row-gap:10px;
+}
+
+.tag__active {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:150px;
+  height:20px;
+  padding:15px;
+  border-radius:10px;
+  background:$primary-color;
+  font-size:14px;
+
+  & i {
+    cursor:pointer;
+  }
+}
+
