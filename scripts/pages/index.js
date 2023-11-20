@@ -91,6 +91,10 @@ const searchRecipes = (event) => {
 const resetForm = () => {
   form.reset();
   resetSearch.classList.add("hidden");
+  recipeSection.textContent = "";
+  searchTextUser = "";
+  const result = displaySearchRecipes(searchTextUser, displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData));
+  displayRecipes(result);
 }
 
 inputSearch.addEventListener("input", searchRecipes);
@@ -109,7 +113,7 @@ const displayTags = (list) => {
   const ustensilesSearchTags = filterTagsSearch(ustensilesInput.value.toLowerCase(), ustensilesArray);
 
   // Récupération des tags des recettes actuellement affichées après la recherche
-  const displayedRecipes = displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData);
+  const displayedRecipes = displaySearchRecipes(searchTextUser, displaySearchRecipesWithTags(ingredientsTags, ustensilesTags, appareilsTags, recipesData));
   const ingredientsInDisplayedRecipes = allIngredients(displayedRecipes);
   const appareilsInDisplayedRecipes = allAppareils(displayedRecipes);
   const ustensilesInDisplayedRecipes = allUstensiles(displayedRecipes);
@@ -219,7 +223,6 @@ const init = () => {
       displayTags(recipesData);
     })
   });
-
 
   // Au clic sur le bloc affichage des dropdowns
   dropdowns.forEach((dropdown) => {
